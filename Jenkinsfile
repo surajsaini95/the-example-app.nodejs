@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Parallel Stage'){
             parallel {
-                stage ('Install Dependencies in ubuntu Slave') {
+                stage ('Install Dependencies in aws') {
                     agent {
-                        label "ubuntu-slave"
+                        label "ubuntu_aws"
                     }
                     steps {
                         sh '''
@@ -14,9 +14,9 @@ pipeline {
                         '''
                     }
                 }
-                stage ('Install Dependencies in debian Slave') {
+                stage ('Install Dependencies in gcp') {
                     agent {
-                        label "debian-slave"
+                        label "ubuntu-gcp"
                     }
                     steps {
                         sh '''
